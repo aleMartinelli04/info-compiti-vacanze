@@ -1,7 +1,8 @@
 package es3;
 
 import javax.swing.*;
-import java.util.Arrays;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class Gui extends JFrame {
     public Gui() {
         super("Gioco leva");
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(mainPanel);
 
         setSize(500, 350);
@@ -48,15 +50,15 @@ public class Gui extends JFrame {
 
         soldi -= puntata;
 
-        Integer[] num = new Integer[3];
+        List<Integer> num = new ArrayList<>();
 
-        for (int i = 0; i < num.length; i++) {
-            num[i] = ThreadLocalRandom.current().nextInt(0, 5);
+        for (int i = 0; i < 3; i++) {
+            num.add(ThreadLocalRandom.current().nextInt(0, 5));
         }
 
-        Set<Integer> nums = new HashSet<>(List.of(num));
+        Set<Integer> nums = new HashSet<>(num);
 
-        String message = "Numeri usciti: " + Arrays.toString(num) + "\n" +
+        String message = "Numeri usciti: " + num + "\n" +
                 switch (nums.size()) {
                     case 1 -> {
                         soldi += puntata * 3;
@@ -72,6 +74,6 @@ public class Gui extends JFrame {
 
         JOptionPane.showMessageDialog(this, message, "Esito Puntata", JOptionPane.INFORMATION_MESSAGE);
         spinnerPuntata.setValue(0);
-        soldiField.setText("Adesso hai " + soldi + " soldi!");
+        soldiField.setText("Adesso hai " + NumberFormat.getCurrencyInstance().format(soldi) + " soldi!");
     }
 }
