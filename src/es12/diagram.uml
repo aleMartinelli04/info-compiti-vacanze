@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="508.0" y="132.0">es12.Dipinto</node>
+    <node x="-259.5" y="90.0">es12.Scultura</node>
+    <node x="152.5" y="-8.0">es12.Opera</node>
+    <node x="518.2239382239383" y="-239.0">es12.Possessore</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="es12.Scultura" target="es12.Opera" relationship="GENERALIZATION">
+      <point x="177.0" y="0.0" />
+      <point x="-142.0" y="0.0" />
+    </edge>
+    <edge source="es12.Opera" target="es12.Possessore" relationship="GENERALIZATION">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="es12.Dipinto" target="es12.Opera" relationship="GENERALIZATION">
+      <point x="-182.5" y="0.0" />
+      <point x="142.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8985255854293148" showDependencies="false" x="306.5" y="115.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
