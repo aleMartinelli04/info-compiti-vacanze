@@ -1,5 +1,7 @@
 package es10;
 
+import utilities.Utilities;
+
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.Arrays;
@@ -36,12 +38,8 @@ public class Cliente {
             throw new Exception("Limite prenotazioni invalido");
         }
 
-        this.nome = Arrays.stream(nome.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
-        this.cognome = Arrays.stream(cognome.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
+        this.nome = Utilities.formatString(nome);
+        this.cognome = Utilities.formatString(cognome);
         this.codiceFiscale = codiceFiscale.toUpperCase();
         this.dataNascita = dataNascita;
 

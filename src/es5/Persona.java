@@ -1,5 +1,7 @@
 package es5;
 
+import utilities.Utilities;
+
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.stream.Collectors;
@@ -23,12 +25,8 @@ public class Persona {
         }
 
 
-        this.nome = Arrays.stream(nome.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
-        this.cognome = Arrays.stream(cognome.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
+        this.nome = Utilities.formatString(nome);
+        this.cognome = Utilities.formatString(cognome);
         this.annoNascita = annoNascita;
     }
 

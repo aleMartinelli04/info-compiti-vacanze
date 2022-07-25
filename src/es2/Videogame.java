@@ -1,5 +1,7 @@
 package es2;
 
+import utilities.Utilities;
+
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -22,12 +24,8 @@ public class Videogame {
             throw new Exception("Prezzo invalido");
         }
 
-        this.nome = Arrays.stream(nome.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
-        this.casaProduttrice = Arrays.stream(casaProduttrice.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
+        this.nome = Utilities.formatString(nome);
+        this.casaProduttrice = Utilities.formatString(casaProduttrice);
         this.prezzo = prezzo;
     }
 
