@@ -1,9 +1,9 @@
 package es1;
 
-import java.util.Arrays;
+import utilities.Utilities;
+
 import java.util.Calendar;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class Libro {
     private final String codice;
@@ -25,13 +25,9 @@ public class Libro {
         }
 
         this.codice = UUID.randomUUID().toString().split("-")[0].toUpperCase();
-        this.titolo = Arrays.stream(titolo.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
+        this.titolo = Utilities.formatString(titolo);
         this.annoPubblicazione = annoPubblicazione;
-        this.autore = Arrays.stream(autore.split(" "))
-                .map(part -> part.substring(0, 1).toUpperCase() + part.substring(1).toLowerCase())
-                .collect(Collectors.joining(" "));
+        this.autore = Utilities.formatString(autore);
     }
 
     public String getCodice() {
